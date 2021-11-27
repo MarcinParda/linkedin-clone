@@ -1,4 +1,4 @@
-import { SET_USER } from "action/actionType";
+import {SET_USER} from "actions/actionType";
 
 const INITIAL_STATE = {
     user: null,
