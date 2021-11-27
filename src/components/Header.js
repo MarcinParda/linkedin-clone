@@ -53,6 +53,26 @@ const Header = () => {
                                 <span>Notifications</span>
                             </button>
                         </NavList>
+                        <User>
+                            <button>
+                                <img src="/images/user.svg" alt="" />
+                                <span>Me</span>
+                                <img src="/images/down-icon.svg" alt="" />
+                            </button>
+
+                            <SignOut>
+                                <button>Sign Out</button>
+                            </SignOut>
+                        </User>
+                        <Work>
+                            <button>
+                                <img src="/images/nav-work.svg" alt="" />
+                                <span>
+                                  Work
+                                  <img src="/images/down-icon.svg" alt="" />
+                                </span>
+                            </button>
+                        </Work>
                     </NavListWrap>
                 </Nav>
             </Content>
@@ -92,7 +112,7 @@ const Search = styled.div`
     max-width: 280px;
     input {
       border: 0 solid #dce6f1;
-      box-shadow: none;
+      box-shadow: none; 
       background-color: #eef3f8;
       border-radius: 2px;
       color: rgba(0, 0, 0, 0.9);
@@ -180,12 +200,52 @@ const NavList = styled.li`
   }
   &:hover,
   &:active {
-    a {
+    button {
       span {
         color: rgba(0, 0, 0, 0.9);
       }
     }
   }
+`;
+
+const SignOut = styled.div`
+  position: absolute;
+  top: 45px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+`;
+
+const User = styled(NavList)`
+  button > svg {
+    width: 24px;
+    border-radius: 50%;
+  }
+  button > img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  span {
+    display: flex;
+    align-items: center;
+  }
+  &:hover {
+    ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+const Work = styled(User)`
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
 export default Header;
