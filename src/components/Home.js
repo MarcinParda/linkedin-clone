@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Leftside from "./LeftSide";
 import Main from "./Main";
-import Rightside from "./RightSide";
+import RightSide from "./RightSide";
 
 const Home = (props) => {
     return (
@@ -18,7 +18,7 @@ const Home = (props) => {
             <Layout>
                 <Leftside />
                 {/*<Main />*/}
-                {/*<Rightside />*/}
+                <RightSide />
             </Layout>
         </Container>
     );
