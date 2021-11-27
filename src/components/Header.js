@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = (props) => {
+const Header = () => {
     return(
         <Container>
             <Content>
@@ -20,38 +20,38 @@ const Header = (props) => {
                 <Nav>
                     <NavListWrap>
                         <NavList className="active">
-                            <a>
+                            <button>
                                 <img src="/images/nav-home.svg" alt="" />
                                 <span>Home</span>
-                            </a>
+                            </button>
                         </NavList>
 
                         <NavList>
-                            <a>
+                            <button>
                                 <img src="/images/nav-network.svg" alt="" />
                                 <span>My Network</span>
-                            </a>
+                            </button>
                         </NavList>
 
                         <NavList>
-                            <a>
+                            <button>
                                 <img src="/images/nav-jobs.svg" alt="" />
                                 <span>Jobs</span>
-                            </a>
+                            </button>
                         </NavList>
 
                         <NavList>
-                            <a>
+                            <button>
                                 <img src="/images/nav-messaging.svg" alt="" />
                                 <span>Messaging</span>
-                            </a>
+                            </button>
                         </NavList>
 
                         <NavList>
-                            <a>
+                            <button>
                                 <img src="/images/nav-notifications.svg" alt="" />
                                 <span>Notifications</span>
-                            </a>
+                            </button>
                         </NavList>
                     </NavListWrap>
                 </Nav>
@@ -155,9 +155,10 @@ const NavListWrap = styled.ul`
 const NavList = styled.li`
   display: flex;
   align-items: center;
-  a {
+  button {
     align-items: center;
     background: transparent;
+    border: 0;
     display: flex;
     flex-direction: column;
     font-size: 12px;
