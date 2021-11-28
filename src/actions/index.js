@@ -52,12 +52,9 @@ export function postArticleAPI(payload) {
         .ref(`images/${payload.image.name}`)
         .put(payload.image);
       upload.on('state_changed',
-        (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          if (snapshot.state === 'RUNNING') {
-            console.log(`Progress: ${progress}%`);
-          }
-        }, error => console.log(error.code),
+        () => {
+        }, () => {
+        },
         async () => {
           const downloadURL = await upload.snapshot.ref.getDownloadURL();
           db.collection('articles').add({
