@@ -1,55 +1,56 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const Leftside = (props) => {
-    return (
-        <Container>
-            <ArtCard>
-                <UserInfo>
-                    <CardBackground />
-                    <button>
-                        <Photo />
-                        <Link>Welcome, there!</Link>
-                    </button>
-                    <button>
-                        <AddPhotoText>Add a photo</AddPhotoText>
-                    </button>
-                </UserInfo>
-                <Widget>
-                    <button>
-                        <div>
-                            <span>Connections</span>
-                            <span>Grow your network</span>
-                        </div>
-                        <img src="/images/widget-icon.svg" alt="" />
-                    </button>
-                </Widget>
-                <Item>
+  return (
+    <Container>
+      <ArtCard>
+        <UserInfo>
+          <CardBackground/>
+          <button>
+            <Photo/>
+            <Link>Welcome, { props.user ? props.user.displayName : "there" }!</Link>
+          </button>
+          <button>
+            <AddPhotoText>Add a photo</AddPhotoText>
+          </button>
+        </UserInfo>
+        <Widget>
+          <button>
+            <div>
+              <span>Connections</span>
+              <span>Grow your network</span>
+            </div>
+            <img src="/images/widget-icon.svg" alt=""/>
+          </button>
+        </Widget>
+        <Item>
           <span>
-            <img src="/images/item-icon.svg" alt="" />
+            <img src="/images/item-icon.svg" alt=""/>
             My Items
           </span>
-                </Item>
-            </ArtCard>
+        </Item>
+      </ArtCard>
 
-            <CommunityCard>
-                <button>
-                    <span>Groups</span>
-                </button>
-                <button>
+      <CommunityCard>
+        <button>
+          <span>Groups</span>
+        </button>
+        <button>
           <span>
             Events
-            <img src="/images/plus-icon.svg" alt="" />
+            <img src="/images/plus-icon.svg" alt=""/>
           </span>
-                </button>
-                <button>
-                    <span>Follow Hashtags</span>
-                </button>
-                <button>
-                    <span>Discover more</span>
-                </button>
-            </CommunityCard>
-        </Container>
-    );
+        </button>
+        <button>
+          <span>Follow Hashtags</span>
+        </button>
+        <button>
+          <span>Discover more</span>
+        </button>
+      </CommunityCard>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -73,6 +74,7 @@ const UserInfo = styled.div`
   padding: 12px 12px 16px;
   word-wrap: break-word;
   word-break: break-word;
+
   button {
     width: 100%;
     border: 0;
@@ -123,6 +125,7 @@ const Widget = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 12px;
   padding-bottom: 12px;
+
   & > button {
     width: 100%;
     border: 0;
@@ -132,25 +135,31 @@ const Widget = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 4px 12px;
+
     &:hover {
       background-color: rgba(0, 0, 0, 0.08);
     }
+
     div {
       display: flex;
       flex-direction: column;
       text-align: left;
+
       span {
         font-size: 12px;
         line-height: 1.333;
+
         &:first-child {
           color: rgba(0, 0, 0, 0.6);
         }
+
         &:nth-child(2) {
           color: rgba(0, 0, 0, 1);
         }
       }
     }
   }
+
   svg {
     color: rgba(0, 0, 0, 1);
   }
@@ -162,14 +171,17 @@ const Item = styled.a`
   padding: 12px;
   font-size: 12px;
   display: block;
+
   span {
     display: flex;
     align-items: center;
     color: rgba(0, 0, 0, 1);
+
     svg {
       color: rgba(0, 0, 0, 0.6);
     }
   }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
   }
@@ -180,25 +192,30 @@ const CommunityCard = styled(ArtCard)`
   text-align: left;
   display: flex;
   flex-direction: column;
+
   button {
     border: 0;
     background-color: transparent;
     color: black;
     padding: 4px 12px 4px 12px;
     font-size: 12px;
+
     &:hover {
       color: #0a66c2;
     }
+
     span {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     &:last-child {
       color: rgba(0, 0, 0, 0.6);
       text-decoration: none;
       border-top: 1px solid #d6cec2;
       padding: 12px;
+
       &:hover {
         background-color: rgba(0, 0, 0, 0.08);
       }
@@ -206,4 +223,10 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
-export default Leftside;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  }
+}
+
+export default connect(mapStateToProps)(Leftside);
