@@ -1,48 +1,48 @@
 import styled from "styled-components";
 
 const RightSide = (props) => {
-    return (
-        <Container>
-            <FollowCard>
-                <Title>
-                    <h2>Add to your feed</h2>
-                    <img src="/images/feed-icon.svg" alt="" />
-                </Title>
+  return (
+    <Container>
+      <FollowCard>
+        <Title>
+          <h2>Add to your feed</h2>
+          <img src="/images/feed-icon.svg" alt=""/>
+        </Title>
 
-                <FeedList>
-                    <li>
-                        <LinkButton>
-                            <Avatar />
-                        </LinkButton>
-                        <div>
-                            <span>#Linkedin</span>
-                            <button>Follow</button>
-                        </div>
-                    </li>
-                    <li>
-                        <LinkButton>
-                            <Avatar />
-                        </LinkButton>
-                        <div>
-                            <span>#Video</span>
-                            <button>Follow</button>
-                        </div>
-                    </li>
-                </FeedList>
+        <FeedList>
+          <li>
+            <LinkButton>
+              <Avatar/>
+            </LinkButton>
+            <div>
+              <span>#Linkedin</span>
+              <button>Follow</button>
+            </div>
+          </li>
+          <li>
+            <LinkButton>
+              <Avatar/>
+            </LinkButton>
+            <div>
+              <span>#Video</span>
+              <button>Follow</button>
+            </div>
+          </li>
+        </FeedList>
 
-                <Recommendation>
-                    View all recommendations
-                    <img src="/images/right-icon.svg" alt="" />
-                </Recommendation>
-            </FollowCard>
-            <BannerCard>
-                <img
-                    src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
-                    alt=""
-                />
-            </BannerCard>
-        </Container>
-    );
+        <Recommendation>
+          View all recommendations
+          <img src="/images/right-icon.svg" alt=""/>
+        </Recommendation>
+      </FollowCard>
+      <BannerCard>
+        <img
+          src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
+          alt=""
+        />
+      </BannerCard>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -72,16 +72,19 @@ const Title = styled.div`
 
 const FeedList = styled.ul`
   margin-top: 16px;
+
   li {
     display: flex;
     align-items: center;
     margin: 12px 0;
     position: relative;
     font-size: 14px;
+
     & > div {
       display: flex;
       flex-direction: column;
     }
+
     button {
       background-color: transparent;
       color: rgba(0, 0, 0, 0.6);
@@ -111,11 +114,18 @@ const Avatar = styled.div`
   margin-right: 8px;
 `;
 
-const Recommendation = styled.a`
+const Recommendation = styled.button`
+  background-color: transparent;
+  border: 0;
+  margin-left: 15px;
   color: #0a66c2;
   display: flex;
   align-items: center;
   font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const BannerCard = styled(FollowCard)`
