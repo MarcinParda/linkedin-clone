@@ -65,7 +65,7 @@ const Main = (props) => {
         </ShareBox>
         {
           props.articles.length === 0 ?
-            <p>There are no articles</p> :
+            <p style={{ textAlign: 'center' }}><img src='/images/spin-loader.gif' alt=''/></p> :
             <Content>
               {
                 props.loading && <img src='/images/spin-loader.gif' alt=''/>
