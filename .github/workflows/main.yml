@@ -27,8 +27,6 @@ jobs:
         with:
           name: build
           path: build
-        env:
-          CI: ""
 
   deploy:
     name: Deploy
