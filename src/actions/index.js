@@ -1,9 +1,14 @@
 import db, { auth, provider, storage } from "firebase";
-import { SET_USER } from "actions/actionType";
+import { SET_LOADING_STATUS, SET_USER } from "actions/actionType";
 
 export const setUser = (payload) => ({
   type: SET_USER,
   user: payload
+})
+
+export const setLoading = (status) => ({
+  type: SET_LOADING_STATUS,
+  status: status
 })
 
 export function signInAPI() {
@@ -36,6 +41,7 @@ export function signOutAPI() {
 
 export function postArticleAPI(payload) {
   return (dispatch) => {
+    dispatch(setLoading(true));
     if (payload.image !== '') {
       const upload = storage
         .ref(`images/${payload.image.name}`)
@@ -49,7 +55,7 @@ export function postArticleAPI(payload) {
         }, error => console.log(error.code),
         async () => {
           const downloadURL = await upload.snapshot.ref.getDownloadURL();
-          await db.collection('articles').add({
+          db.collection('articles').add({
             actor: {
               description: payload.user.email,
               title: payload.user.displayName,
@@ -60,7 +66,9 @@ export function postArticleAPI(payload) {
             sharedImg: downloadURL,
             comments: 0,
             description: payload.description,
-          })
+          }).finally(() =>
+            dispatch(setLoading(false))
+          )
         })
     } else if (payload.video) {
       db.collection('articles').add({
@@ -74,7 +82,20 @@ export function postArticleAPI(payload) {
         sharedImg: "",
         comments: 0,
         description: payload.description,
-      })
+      }).finally(() =>
+        dispatch(setLoading(false))
+      )
+
     }
   };
+}
+
+export function getArticleAPI() {
+  return (dispatch) => {
+    let payload;
+    db.collection('articles').orderBy('actor.date', 'desc')
+      .onSnapshot(snapshot => {
+        payload = snapshot.docs.map((doc) => doc.data());
+      })
+  }
 }
