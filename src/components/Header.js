@@ -57,13 +57,13 @@ const Header = (props) => {
             </NavList>
             <User>
               <button>
-                { props.user && props.user.photoURL ? <img src={ props.user.photoURL } alt=""/> :
-                  <img src="/images/user.svg" alt=""/> }
+                {props.user && props.user.photoURL ? <img src={props.user.photoURL} alt=""/> :
+                  <img src="/images/user.svg" alt=""/>}
                 <span>Me</span>
                 <img src="/images/down-icon.svg" alt=""/>
               </button>
 
-              <SignOut onClick={ () => props.signOut() }>
+              <SignOut onClick={() => props.signOut()}>
                 <button>Sign Out</button>
               </SignOut>
             </User>
@@ -249,7 +249,7 @@ const User = styled(NavList)`
   }
 
   &:hover {
-    ${ SignOut } {
+    ${SignOut} {
       align-items: center;
       display: flex;
       justify-content: center;
@@ -262,7 +262,6 @@ const Work = styled(User)`
 `;
 
 const mapStateToProps = (state) => {
-  console.log(state.userState.user);
   return {
     user: state.userState.user,
   };
