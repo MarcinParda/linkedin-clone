@@ -45,21 +45,21 @@ const Main = (props) => {
             </button>
           </div>
           <div>
-            <button>
-              <img src="/images/photo-icon.svg" alt=""/>
-              <span>Photo</span>
+            <button onClick={clickHandler}>
+              <img onClick={clickHandler} src="/images/photo-icon.svg" alt=""/>
+              <span onClick={clickHandler}>Photo</span>
             </button>
-            <button>
-              <img src="/images/video-icon.svg" alt=""/>
-              <span>Video</span>
+            <button onClick={clickHandler}>
+              <img onClick={clickHandler} src="/images/video-icon.svg" alt=""/>
+              <span onClick={clickHandler}>Video</span>
             </button>
-            <button>
-              <img src="/images/event-icon.svg" alt=""/>
-              <span>Event</span>
+            <button onClick={clickHandler}>
+              <img onClick={clickHandler} src="/images/event-icon.svg" alt=""/>
+              <span onClick={clickHandler}>Event</span>
             </button>
-            <button>
-              <img src="/images/article-icon.svg" alt=""/>
-              <span>Write article</span>
+            <button onClick={clickHandler}>
+              <img onClick={clickHandler} src="/images/article-icon.svg" alt=""/>
+              <span onClick={clickHandler}>Write article</span>
             </button>
           </div>
         </ShareBox>
