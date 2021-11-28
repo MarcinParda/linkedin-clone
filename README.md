@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# LinkedIn Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**_Built using React JS, Redux, Firebase & Styled-Components_** within a week. My first project after learning React JS
+referencing a tutorial on YouTube by _'Clever Programmer'_. Added some features apart from the tutorial on my own like:
 
-## Available Scripts
+- Post like functionality
+- Mobile responsiveness
 
-In the project directory, you can run:
+## Features and Fuctionality
 
-### `yarn start`
+- Login using Google (Firebase Authentication)
+- Create a new post
+- Share photos and videos (React player for videos)
+- Like posts
+- Realtime update likes and posts
+- Auto authenticate user on refresh
+- Sign Out
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to build your own..?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repo
+1. Install all the dependencies
+    ```bash
+    npm i
+    ```
+1. Setup Firebase
 
-### `yarn test`
+    - Create Firebase account
+    - Create a new project
+    - Create a web app for that
+    - Copy your config from there
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        - Select config option
+        - Paste those config inside firebase/config.js file
 
-### `yarn build`
+    - Setup authentication using Google
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Tweak code as you like
+1. Let's build the optimized version
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    npm run build
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Now for hosting on Firebase lets config Firebase locally**
 
-### `yarn eject`
+    - Install Firebase CLI
+    - Login to Firebase
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        ```bash
+        firebase login
+        ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - Initialize Firebase
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+        ```bash
+        firebase init
+        ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - Select hosting in the menu
+    - Select your respective project from the list
+    - Select 'build' as your hosting directory and other options as you want
+    - Let's deploy our clone and make it live
 
-## Learn More
+        ```bash
+        firebase deploy
+        ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**That's it our clone is up and running share it now**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Plans
 
-### Code Splitting
+- Might add more login methods
+- Post deleting functionality
+- Add comments on post
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**_NOTE: PLEASE LET ME KNOW IF YOU DISCOVERED ANY BUG OR YOU HAVE ANY SUGGESTIONS_**

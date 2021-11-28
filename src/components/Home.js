@@ -6,9 +6,11 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Home = (props) => {
+  if (!props.user) {
+    return <Redirect to="/"/>;
+  }
   return (
     <Container>
-      {!props.user && <Redirect to="/"/>}
       <Section>
         <h5>
           <a>Hiring in a hurry? -</a>

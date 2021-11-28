@@ -4,9 +4,11 @@ import { signInAPI } from "actions";
 import { Redirect } from "react-router-dom";
 
 const Login = (props) => {
+  if (props.user) {
+    return <Redirect to="/home"/>;
+  }
   return (
     <Container>
-      {props.user && <Redirect to="/home"/>}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="login logo"/>
