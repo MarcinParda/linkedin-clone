@@ -149,7 +149,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   top: 32px;
-  margin: 0 auto;
+  margin: 50px auto;
 `;
 
 const Header = styled.div`
@@ -278,6 +278,7 @@ const Editor = styled.div`
   padding: 12px 24px;
 
   textarea {
+    padding: 10px;
     width: 100%;
     min-height: 100px;
     resize: none;
