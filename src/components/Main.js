@@ -40,7 +40,7 @@ const Main = (props) => {
               ? <img src={props.user.photoURL} alt=""/>
               : <img src="/images/user.svg" alt=""/>
             }
-            <button disabled={!!props.loading} onClick={clickHandler}>
+            <button style={{ cursor: "text" }} disabled={!!props.loading} onClick={clickHandler}>
               Start a post
             </button>
           </div>
