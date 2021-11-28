@@ -1,83 +1,85 @@
 import styled from 'styled-components';
+import { connect } from "react-redux";
 
-const Header = () => {
-    return(
-        <Container>
-            <Content>
-                <Logo>
-                    <a href="/home">
-                        <img src="/images/home-logo.svg" alt="" />
-                    </a>
-                </Logo>
-                <Search>
-                    <div>
-                        <input type="text" placeholder="Search" />
-                    </div>
-                    <SearchIcon>
-                        <img src="/images/search-icon.svg" alt="" />
-                    </SearchIcon>
-                </Search>
-                <Nav>
-                    <NavListWrap>
-                        <NavList className="active">
-                            <button>
-                                <img src="/images/nav-home.svg" alt="" />
-                                <span>Home</span>
-                            </button>
-                        </NavList>
+const Header = (props) => {
+  return (
+    <Container>
+      <Content>
+        <Logo>
+          <a href="/home">
+            <img src="/images/home-logo.svg" alt=""/>
+          </a>
+        </Logo>
+        <Search>
+          <div>
+            <input type="text" placeholder="Search"/>
+          </div>
+          <SearchIcon>
+            <img src="/images/search-icon.svg" alt=""/>
+          </SearchIcon>
+        </Search>
+        <Nav>
+          <NavListWrap>
+            <NavList className="active">
+              <button>
+                <img src="/images/nav-home.svg" alt=""/>
+                <span>Home</span>
+              </button>
+            </NavList>
 
-                        <NavList>
-                            <button>
-                                <img src="/images/nav-network.svg" alt="" />
-                                <span>My Network</span>
-                            </button>
-                        </NavList>
+            <NavList>
+              <button>
+                <img src="/images/nav-network.svg" alt=""/>
+                <span>My Network</span>
+              </button>
+            </NavList>
 
-                        <NavList>
-                            <button>
-                                <img src="/images/nav-jobs.svg" alt="" />
-                                <span>Jobs</span>
-                            </button>
-                        </NavList>
+            <NavList>
+              <button>
+                <img src="/images/nav-jobs.svg" alt=""/>
+                <span>Jobs</span>
+              </button>
+            </NavList>
 
-                        <NavList>
-                            <button>
-                                <img src="/images/nav-messaging.svg" alt="" />
-                                <span>Messaging</span>
-                            </button>
-                        </NavList>
+            <NavList>
+              <button>
+                <img src="/images/nav-messaging.svg" alt=""/>
+                <span>Messaging</span>
+              </button>
+            </NavList>
 
-                        <NavList>
-                            <button>
-                                <img src="/images/nav-notifications.svg" alt="" />
-                                <span>Notifications</span>
-                            </button>
-                        </NavList>
-                        <User>
-                            <button>
-                                <img src="/images/user.svg" alt="" />
-                                <span>Me</span>
-                                <img src="/images/down-icon.svg" alt="" />
-                            </button>
+            <NavList>
+              <button>
+                <img src="/images/nav-notifications.svg" alt=""/>
+                <span>Notifications</span>
+              </button>
+            </NavList>
+            <User>
+              <button>
+                { props.user && props.user.photoURL ? <img src={ props.user.photoURL } alt=""/> :
+                  <img src="/images/user.svg" alt=""/> }
+                <span>Me</span>
+                <img src="/images/down-icon.svg" alt=""/>
+              </button>
 
-                            <SignOut>
-                                <button>Sign Out</button>
-                            </SignOut>
-                        </User>
-                        <Work>
-                            <button>
-                                <img src="/images/nav-work.svg" alt="" />
-                                <span>
-                                  Work
-                                  <img src="/images/down-icon.svg" alt="" />
-                                </span>
-                            </button>
-                        </Work>
-                    </NavListWrap>
-                </Nav>
-            </Content>
-        </Container>
-    )
+              <SignOut>
+                <button>Sign Out</button>
+              </SignOut>
+            </User>
+            <Work>
+              <button>
+                <img src="/images/nav-work.svg" alt=""/>
+                <span>
+                  Work
+                  <img src="/images/down-icon.svg" alt=""/>
+                </span>
+              </button>
+            </Work>
+          </NavListWrap>
+        </Nav>
+      </Content>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -108,11 +110,13 @@ const Search = styled.div`
   opacity: 1;
   flex-grow: 1;
   position: relative;
+
   & > div {
     max-width: 280px;
+
     input {
       border: 0 solid #dce6f1;
-      box-shadow: none; 
+      box-shadow: none;
       background-color: #eef3f8;
       border-radius: 2px;
       color: rgba(0, 0, 0, 0.9);
@@ -157,6 +161,7 @@ const NavListWrap = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   list-style-type: none;
+
   .active {
     span:after {
       content: "";
@@ -175,6 +180,7 @@ const NavListWrap = styled.ul`
 const NavList = styled.li`
   display: flex;
   align-items: center;
+
   button {
     align-items: center;
     background: transparent;
@@ -189,15 +195,18 @@ const NavList = styled.li`
     min-width: 80px;
     position: relative;
     text-decoration: none;
+
     span {
       color: rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
     }
+
     @media (max-width: 768px) {
       min-width: 70px;
     }
   }
+
   &:hover,
   &:active {
     button {
@@ -226,17 +235,20 @@ const User = styled(NavList)`
     width: 24px;
     border-radius: 50%;
   }
+
   button > img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
   }
+
   span {
     display: flex;
     align-items: center;
   }
+
   &:hover {
-    ${SignOut} {
+    ${ SignOut } {
       align-items: center;
       display: flex;
       justify-content: center;
@@ -248,4 +260,14 @@ const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
-export default Header;
+const mapStateToProps = (state) => {
+  console.log(state.userState.user);
+  return {
+    user: state.userState.user,
+  };
+}
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
