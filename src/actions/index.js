@@ -62,6 +62,19 @@ export function postArticleAPI(payload) {
             description: payload.description,
           })
         })
+    } else if (payload.video) {
+      db.collection('articles').add({
+        actor: {
+          description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL
+        },
+        video: payload.video,
+        sharedImg: "",
+        comments: 0,
+        description: payload.description,
+      })
     }
   };
 }
