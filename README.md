@@ -20,3 +20,6 @@
 - Like posts
 - Post deleting functionality
 - Add comments on post
+- Add loading screen when refresh
+- Add github actions deployment
+- Add redux toolkit to make things easier
