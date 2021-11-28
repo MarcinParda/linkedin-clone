@@ -46,6 +46,7 @@ export function signOutAPI() {
 
 export function postArticleAPI(payload) {
   return (dispatch) => {
+    console.log(payload);
     dispatch(setLoading(true));
     if (payload.image !== '') {
       const upload = storage
@@ -88,6 +89,21 @@ export function postArticleAPI(payload) {
         dispatch(setLoading(false))
       )
 
+    } else {
+      db.collection('articles').add({
+        actor: {
+          description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL
+        },
+        video: "",
+        sharedImg: "",
+        comments: 0,
+        description: payload.description,
+      }).finally(() =>
+        dispatch(setLoading(false))
+      )
     }
   };
 }
