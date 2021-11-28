@@ -33,7 +33,8 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 25px 0;
+  padding: 25px;
+  padding-bottom: 40px;
   box-sizing: content-box;
   text-align: center;
   text-decoration: underline;

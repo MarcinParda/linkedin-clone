@@ -60,7 +60,6 @@ const Header = (props) => {
                 {props.user && props.user.photoURL ? <img src={props.user.photoURL} alt=""/> :
                   <img src="/images/user.svg" alt=""/>}
                 <span>Me</span>
-                <img src="/images/down-icon.svg" alt=""/>
               </button>
 
               <SignOut onClick={() => props.signOut()}>
@@ -72,7 +71,6 @@ const Header = (props) => {
                 <img src="/images/nav-work.svg" alt=""/>
                 <span>
                   Work
-                  <img src="/images/down-icon.svg" alt=""/>
                 </span>
               </button>
             </Work>
@@ -162,6 +160,7 @@ const Nav = styled.nav`
 `;
 
 const NavListWrap = styled.ul`
+  justify-content: space-around;
   display: flex;
   flex-wrap: nowrap;
   list-style-type: none;
@@ -225,13 +224,17 @@ const SignOut = styled.div`
   position: absolute;
   top: 45px;
   background: white;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   width: 100px;
   height: 40px;
   font-size: 16px;
   transition-duration: 167ms;
   text-align: center;
   display: none;
+
+  &:hover {
+    background-color: #eee;
+  }
 `;
 
 const User = styled(NavList)`
@@ -258,10 +261,18 @@ const User = styled(NavList)`
       justify-content: center;
     }
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const mapStateToProps = (state) => {

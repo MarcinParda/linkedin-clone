@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { signOutAPI } from "actions";
 
 const Leftside = (props) => {
   return (
@@ -9,7 +10,7 @@ const Leftside = (props) => {
           <CardBackground/>
           <button>
             <Photo/>
-            <Link>Welcome, { props.user ? props.user.displayName : "there" }!</Link>
+            <Link>Welcome, {props.user ? props.user.displayName : "there"}!</Link>
           </button>
           <button>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -23,6 +24,20 @@ const Leftside = (props) => {
             </div>
             <img src="/images/widget-icon.svg" alt=""/>
           </button>
+          <div>
+            <ButtonFromNav onClick={() => props.signOut()}>
+              <div>
+                <span>My profile</span>
+                <span>Log out</span>
+              </div>
+            </ButtonFromNav>
+            <ButtonFromNav>
+              <div>
+                <span>Work</span>
+                <span>Check out job offers</span>
+              </div>
+            </ButtonFromNav>
+          </div>
         </Widget>
         <Item>
           <span>
@@ -165,6 +180,44 @@ const Widget = styled.div`
   }
 `;
 
+const ButtonFromNav = styled.button`
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px;
+  display: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    span {
+      font-size: 12px;
+      line-height: 1.333;
+
+      &:first-child {
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      &:nth-child(2) {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
+
 const Item = styled.a`
   border-color: rgba(0, 0, 0, 0.8);
   text-align: left;
@@ -228,5 +281,8 @@ const mapStateToProps = (state) => {
     user: state.userState.user,
   }
 }
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutAPI()),
+});
 
-export default connect(mapStateToProps)(Leftside);
+export default connect(mapStateToProps, mapDispatchToProps)(Leftside);
