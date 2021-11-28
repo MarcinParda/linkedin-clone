@@ -13,8 +13,6 @@
 - Auto authenticate user on refresh
 - Sign Out
 
-**That's it our clone is up and running share it now**
-
 ## Future Plans
 
 - Might add more login methods
