@@ -4,32 +4,32 @@ import { signInAPI } from "actions";
 import { Redirect } from "react-router-dom";
 
 const Login = (props) => {
-    return (
-        <Container>
-            { props.user && <Redirect to="/home"/> }
-            <Nav>
-                <a href="/">
-                    <img src="/images/login-logo.svg" alt="login logo"/>
-                </a>
-                <div>
-                    <Join>Join now</Join>
-                    <SignIn>Sign in</SignIn>
-                </div>
-            </Nav>
-            <Section>
-                <Hero>
-                    <h1>Welcome to your professional community</h1>
-                    <img src="/images/login-hero.svg" alt=""/>
-                </Hero>
-                <Form>
-                    <Google onClick={ () => props.signIn() }>
-                        <img src="/images/google.svg" alt=""/>
-                        Sign in with Google
-                    </Google>
-                </Form>
-            </Section>
-        </Container>
-    )
+  return (
+    <Container>
+      {props.user && <Redirect to="/home"/>}
+      <Nav>
+        <a href="/">
+          <img src="/images/login-logo.svg" alt="login logo"/>
+        </a>
+        <div>
+          <Join>Join now</Join>
+          <SignIn>Sign in</SignIn>
+        </div>
+      </Nav>
+      <Section>
+        <Hero>
+          <h1>Welcome to your professional community</h1>
+          <img src="/images/login-hero.svg" alt=""/>
+        </Hero>
+        <Form>
+          <Google onClick={() => props.signIn()}>
+            <img src="/images/google.svg" alt=""/>
+            Sign in with Google
+          </Google>
+        </Form>
+      </Section>
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -101,8 +101,9 @@ const Section = styled.section`
   align-items: center;
   margin: auto;
   @media (max-width: 768px) {
+    justify-content: center;
     margin: auto;
-    min-height: 0px;
+    min-height: 0;
   }
 `;
 
@@ -171,13 +172,13 @@ const Google = styled.button`
 `;
 
 const mapStateToProps = (state) => {
-    return {
-        user: state.userState.user,
-    };
+  return {
+    user: state.userState.user,
+  };
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    signIn: () => dispatch(signInAPI()),
+  signIn: () => dispatch(signInAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
