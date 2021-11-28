@@ -123,10 +123,6 @@ const Main = (props) => {
                       <img src="/images/share-icon.svg" alt=""/>
                       <span>Share</span>
                     </button>
-                    <button>
-                      <img src="/images/send-icon.svg" alt=""/>
-                      <span>Send</span>
-                    </button>
                   </SocialActions>
                 </Article>
               ))}
