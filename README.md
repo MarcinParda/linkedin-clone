@@ -23,3 +23,4 @@
 - Add loading screen when refresh
 - Add github actions deployment
 - Add redux toolkit to make things easier
+- Add popups for WIP content
