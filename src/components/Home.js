@@ -8,10 +8,10 @@ import { connect } from "react-redux";
 const Home = (props) => {
   return (
     <Container>
-      { !props.user && <Redirect to="/"/> }
+      {!props.user && <Redirect to="/"/>}
       <Section>
         <h5>
-          <a>Hiring in a hurry? - </a>
+          <a>Hiring in a hurry? -</a>
         </h5>
         <p>
           Find talented pros in record time with Upwork and keep business
@@ -32,15 +32,8 @@ const Container = styled.div`
   max-width: 100%;
 `;
 
-const Content = styled.div`
-  max-width: 1128px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 const Section = styled.section`
-  min-height: 50px;
-  padding: 16px 0;
+  padding: 25px 0;
   box-sizing: content-box;
   text-align: center;
   text-decoration: underline;
@@ -57,6 +50,7 @@ const Section = styled.section`
   }
 
   p {
+    margin: 0;
     font-size: 14px;
     color: #434649;
     font-weight: 600;
@@ -64,7 +58,7 @@ const Section = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 5px;
+    padding: 15px 5px;
   }
 `;
 
@@ -74,8 +68,7 @@ const Layout = styled.div`
   grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
   column-gap: 25px;
   row-gap: 25px;
-  /* grid-template-row: auto; */
-  margin: 25px 0;
+  margin: 0 0 25px 0;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
