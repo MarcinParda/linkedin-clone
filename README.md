@@ -1,4 +1,5 @@
 # LinkedIn Clone
+## U can watch it live [HERE](https://linkedin-clone-aca77.web.app/home)
 
 **_Built using React JS, Redux, Firebase & Styled-Components_**
 
