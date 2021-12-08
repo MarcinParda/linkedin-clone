@@ -14,9 +14,9 @@
 - Auto authenticate user on refresh
 - Sign Out
 
-## Future Plans
+## Fuctionalities to implement
 
-- [ ] Might add more login methods
+- [ ] Add more login methods
 - [ ] Post updating functionality
 - [ ] Post deleting functionality
 - [ ] Like posts
