@@ -1,17 +1,20 @@
 # LinkedIn Clone
 ## U can watch it live [HERE](https://linkedin-clone-aca77.web.app/home)
 
+![Project preview](https://cdn.discordapp.com/attachments/917864818189418576/918577346225774662/linkedinProject.png)
+
 **_Built using React JS, Redux, Firebase & Styled-Components_**
 
-- Post like functionality
-- Mobile responsiveness
+## Setup
+- run ```npm i && npm start``` to start the development server
 
 ## Features and Fuctionality
 
 - Login using Google (Firebase Authentication)
-- Create a new post
+- Create post functionality
 - Share photos and videos (React player for videos)
 - Auto authenticate user on refresh
+- Mobile responsiveness
 - Sign Out
 
 ## Fuctionalities to implement
