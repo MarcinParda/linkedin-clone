@@ -17,8 +17,10 @@
 - Mobile responsiveness
 - Sign Out
 
+
 ## Fuctionalities to implement
 
+- [ ] Rewrite to typescript
 - [ ] Add more login methods
 - [ ] Post updating functionality
 - [ ] Post deleting functionality
